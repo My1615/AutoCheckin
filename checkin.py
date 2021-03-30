@@ -40,7 +40,8 @@ def Checkin(desp, sckey):
             print(browser.find_element_by_xpath('//*[@id="login"]').text)
             browser.find_element_by_xpath('//*[@id="login"]').click()
             time.sleep(3)
-            parent = browser.find_elements_by_css_selector('.layui-col-xs12.layui-col-sm6.layui-col-md4.layui-col-lg3')
+#             parent = browser.find_elements_by_css_selector('.layui-col-xs12.layui-col-sm6.layui-col-md4.layui-col-lg3')
+            parent = browser.find_elements_by_css_selector('.layui-col-md4')
             for child in parent:
                 print(child.text)
                 temp = child.find_element_by_css_selector('.vpn-content-block-panel__collect_ed')
