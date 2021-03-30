@@ -39,7 +39,7 @@ jobs:
         sudo chown root:root /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
     - name: Connect to PPTP VPN
-      uses: mizumotok/pptp-action@v1
+      uses: mizumotok/pptp-action
       with:
         server: ${{ secrets.VPN_SERVER }}
         username: ${{ secrets.VPN_USERNAME }}
