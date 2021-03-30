@@ -43,12 +43,10 @@ jobs:
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
         sckey='${{ secrets.SCKEY }}'
-        vpn_pwd='${{ secrets.VPN }}'
         
         user_list=()
         pwd_list=()
         sckey_list=()
-        vpn_pwd_list=()
 
         IFS="#"
 
@@ -60,11 +58,6 @@ jobs:
         for p in ${pwd[*]}
         do
         pwd_list[${#pwd_list[*]}]=${p}
-        done
-        
-        for v in ${vpn_pwd[*]}
-        do
-        vpn_pwd_list[${#vpn_pwd_list[*]}]=${v}
         done
         
         for s in ${sckey[*]}
@@ -88,7 +81,6 @@ jobs:
         ${sckey_list[$i]}
         ${user_list[$i]}
         ${pwd_list[$i]}
-        ${vpn_pwd_list[$i]}
         EOF
         done
 
