@@ -38,10 +38,6 @@ jobs:
         sudo mv chromedriver /usr/bin/chromedriver
         sudo chown root:root /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
-    - name: 连接到校园网
-      run: |
-          sudo apt-get install pptp-linux
-          sudo pptpsetup --create mypptp --server ${{ secrets.VPN_SERVER }} --username ${{ secrets.VPN_USERNAME }} --password ${{ secrets.VPN_PASSWORD }} --encrypt --start
     - name: 签到
       run: |
         user='${{ secrets.USER }}'
