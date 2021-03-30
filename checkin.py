@@ -40,7 +40,7 @@ def Checkin(desp, sckey):
                     new_url = temp.get_attribute('data-redirect')
                     break
             if new_url == 'None':
-                print('学工系统 入口获取失败，清检查webvpn网页内容。')
+                print('\n\n\n|||学工系统 入口获取失败，清检查webvpn网页内容|||\n\n\n')
                 pushWechat(desp, sckey)
                 sys.exit(0)
         except:
