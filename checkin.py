@@ -24,7 +24,8 @@ def Checkin(desp, sckey):
     __password = input()
     __vpn_password = input()
     
-    browser = webdriver.Chrome('/usr/bin/chromedriver',options=chrome_options)
+#     browser = webdriver.Chrome('/usr/bin/chromedriver',options=chrome_options)
+    browser = webdriver.Chrome('/usr/bin/chromedriver')
     new_url = 'None'
     try:
         try:
