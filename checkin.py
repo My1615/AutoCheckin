@@ -16,7 +16,9 @@ def pushWechat(desp, sckey):    #微信推送函数，默认只推送 签到失�
 
 def Checkin(desp, sckey):
     chrome_options = Options()
-#     chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument("window-size=1024,768")
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     
