@@ -17,6 +17,10 @@ def pushWechat(desp, sckey):    #微信推送函数，默认只推送 签到失�
 def Checkin(desp, sckey):
     chrome_options = Options()
     chrome_options.add_argument('--headless')
+    ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) \
+    AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A403 \
+    MicroMessenger/6.3.27 NetType/WIFI Language/zh_CN'
+    chrome_options.add_argument('user-agent=' + ua)
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     
