@@ -47,7 +47,7 @@ def Checkin(desp, sckey):
         time.sleep(5)
         browser.find_element_by_xpath('//*[@id="username"]').send_keys(__username)
         browser.find_element_by_xpath('//*[@id="password"]').send_keys(__password)
-        browser.find_element_by_xpath('//*[@id="casLoginForm"]/p[4]').click()
+        browser.find_element_by_xpath('//*[@id="casLoginForm"]/p[4]/button').click()
         time.sleep(5)
         browser.get('https://webvpn.xmu.edu.cn' + new_url + 'app/214')
         time.sleep(10)
