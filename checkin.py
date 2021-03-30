@@ -19,24 +19,44 @@ def Checkin(desp, sckey):
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
-
+    
+    __username = input()
+    __password = input()
+    __vpn_password = input()
+    
     browser = webdriver.Chrome('/usr/bin/chromedriver',options=chrome_options)
+    new_url = 'None'
     try:
         try:
-            browser.get('https://xmuxg.xmu.edu.cn/app/214')
-            browser.find_element_by_xpath('//*[@id="loginLayout"]/div[3]/div[2]/div/button[2]').click()
+            browser.get('https://webvpn.xmu.edu.cn')
+            browser.find_element_by_xpath('//*[@id="user_name"]').send_keys(__username)
+            browser.find_element_by_xpath('//*[@id="form"]/div[3]/div/input').send_keys(__vpn_password)
+            browser.find_element_by_xpath('//*[@id="login"]').click()
+            time.sleep(3)
+            parent = browser.find_elements_by_css_selector('.layui-col-xs12.layui-col-sm6.layui-col-md4.layui-col-lg3')
+            for child in parent:
+                temp = child.find_element_by_css_selector('.vpn-content-block-panel__collect_ed')
+                if temp.get_attribute('data-resource') == '学工系统':
+                    new_url = temp.get_attribute('data-redirect')
+                    break
+            if new_url == 'None':
+                print('学工系统 入口获取失败，清检查webvpn网页内容。')
+                pushWechat(desp, sckey)
+                sys.exit(0)
         except:
             print('\n\n\n|||出错信息如下：|||\n\n\n')
             traceback.print_exc()
             pushWechat(desp, sckey)
             return 404
-        time.sleep(10)
-        browser.find_element_by_xpath('//*[@id="username"]').send_keys(input())
-        browser.find_element_by_xpath('//*[@id="password"]').send_keys(input())
+        browser.get('https://webvpn.xmu.edu.cn' + new_url + 'login')
+        time.sleep(2)
+        browser.find_element_by_xpath('//*[@id="loginLayout"]/div[3]/div[2]/div/button[2]').click()
         time.sleep(5)
+        browser.find_element_by_xpath('//*[@id="username"]').send_keys(__username)
+        browser.find_element_by_xpath('//*[@id="password"]').send_keys(__password)
         browser.find_element_by_xpath('//*[@id="casLoginForm"]/p[4]').click()
         time.sleep(5)
-        browser.get('https://xmuxg.xmu.edu.cn/app/214')
+        browser.get('https://webvpn.xmu.edu.cn' + new_url + 'app/214')
         time.sleep(10)
         browser.find_element_by_xpath('//*[@id="mainM"]/div/div/div/div[1]/div[1]/div[2]')
         browser.find_element_by_xpath('//*[@id="mainM"]/div/div/div/div[1]/div[2]/div/div[3]/div[2]').click()
