@@ -43,7 +43,7 @@ jobs:
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
         sckey='${{ secrets.SCKEY }}'
-        vpn_pwd = '${{ secrets.VPN }}'
+        vpn_pwd='${{ secrets.VPN }}'
         
         user_list=()
         pwd_list=()
