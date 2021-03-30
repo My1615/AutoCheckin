@@ -31,6 +31,7 @@ def Checkin(desp, sckey):
             browser.get('https://webvpn.xmu.edu.cn')
             browser.find_element_by_xpath('//*[@id="user_name"]').send_keys(__username)
             browser.find_element_by_xpath('//*[@id="form"]/div[3]/div/input').send_keys(__vpn_password)
+            browser.find_element_by_xpath('//*[@id="login"]').click()
         except:
             print('\n\n\n|||出错信息如下：|||\n\n\n')
             traceback.print_exc()
