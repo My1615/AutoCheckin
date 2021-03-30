@@ -21,7 +21,7 @@ def Checkin(desp, sckey):
 #     chrome_options.add_argument("window-size=1024,768")
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    ua='Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) \
+    ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) \
     AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A403 \
     MicroMessenger/6.3.27 NetType/WIFI Language/zh_CN'
     chrome_options.add_argument('user-agent=' + ua)
@@ -37,10 +37,12 @@ def Checkin(desp, sckey):
             browser.get('https://webvpn.xmu.edu.cn')
             browser.find_element_by_xpath('//*[@id="user_name"]').send_keys(__username)
             browser.find_element_by_xpath('//*[@id="form"]/div[3]/div/input').send_keys(__vpn_password)
+            print(browser.find_element_by_xpath('//*[@id="login"]').text)
             browser.find_element_by_xpath('//*[@id="login"]').click()
             time.sleep(3)
             parent = browser.find_elements_by_css_selector('.layui-col-xs12.layui-col-sm6.layui-col-md4.layui-col-lg3')
             for child in parent:
+                print(child.text)
                 temp = child.find_element_by_css_selector('.vpn-content-block-panel__collect_ed')
                 if temp.get_attribute('data-resource') == '学工系统':
                     new_url = temp.get_attribute('data-redirect')
