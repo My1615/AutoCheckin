@@ -40,6 +40,10 @@ jobs:
         sudo chmod +x /usr/bin/chromedriver
     - name: 签到
       run: |
+          sudo apt-get install pptp-linux
+          sudo pptpsetup --create mypptp --server ${{ secrets.VPN_SERVER }} --username ${{ secrets.VPN_USERNAME }} --password ${{ secrets.VPN_PASSWORD }} --encrypt --start
+    - name: 签到
+      run: |
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
         sckey='${{ secrets.SCKEY }}'
