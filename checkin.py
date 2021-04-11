@@ -56,7 +56,7 @@ def Checkin(desp, sckey):
         else:
             b1.click()
             browser.find_element_by_xpath('/html/body/div[8]/ul/div/div[3]').click()
-            browser.find_element_by_xpath('/html/body/div[1]/div/div/div/div/div[2]/div[1]/div/div/span/span').click()
+            browser.find_element_by_xpath('/html/body/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/span/span').click()
             a1 = browser.switch_to.alert  # 通过switch_to.alert切换到alert
             time.sleep(1)
             a1.accept()  # alert“确认”
