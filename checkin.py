@@ -24,7 +24,7 @@ def Checkin(desp, sckey):
     try:
         try:
             browser.get('https://xmuxg.xmu.edu.cn/app/214')
-            browser.find_element_by_xpath('//*[@id="loginLayout"]/div[3]/div[2]/div/button[2]').click()
+            browser.find_element_by_xpath('//*[@id="loginLayout"]/div[3]/div[2]/div/button[3]').click()
         except:
             print('\n\n\n|||出错信息如下：|||\n\n\n')
             traceback.print_exc()
