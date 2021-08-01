@@ -23,7 +23,7 @@ def Checkin(desp, sckey):
     browser = webdriver.Chrome('/usr/bin/chromedriver',options=chrome_options)
     try:
         try:
-            browser.get('https://xmuxg.xmu.edu.cn/app/214')
+            browser.get('http://ijg.xujc.com/app/229')
             browser.find_element_by_xpath('//*[@id="loginLayout"]/div[3]/div[2]/div/button[3]').click()
         except:
             print('\n\n\n|||出错信息如下：|||\n\n\n')
